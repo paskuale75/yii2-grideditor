@@ -117,7 +117,7 @@ class Grideditor extends Widget
         $view = $this->getView();
         $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : Json::encode([]);
         GrideditorAsset::register($view);
-        $view->registerJs("jQuery('#$id').grideditor($options);");
+        $view->registerJs("jQuery('#$id').gridEditor($options);");
         echo self::endContainer($this->tag);
     }
 }
