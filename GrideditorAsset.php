@@ -13,22 +13,23 @@ use yii\web\AssetBundle;
  */
 class GrideditorAsset extends AssetBundle 
 {
-    public $sourcePath = 'https://github.com/Frontwise/grid-editor/tree/master/dist/';
-    
-    public $css = ['grideditor.css'];
-    
-    public $js = [
-        'jquery.grideditor.js',
-        'jquery.grideditor.min.js'
-    ];
     public $depends = [
         'yii\web\JqueryAsset',
-        'yii\jui\JuiAsset',
-        //'fedemotta\gridstack\LodashAsset',
+        'yii\jui\JuiAsset'
     ];
-    public function init()
-    {        
-        $this->js = [YII_ENV_PROD ? 'jquery.grideditor.min.js' : 'jquery.grideditor.js'];
-        parent::init();
+
+    public function __construct($config = [])
+    {
+        $config = array_merge([
+            'sourcePath' => __DIR__ . '/dist/',
+            'js' => [
+                YII_DEBUG ? 'jquery.grideditor.js' : 'jquery.grideditor.min.js'
+            ],
+            'css' => [
+                YII_DEBUG ? 'grideditor.css' : 'grideditor.css'
+            ],
+        ], $config);
+        parent::__construct($config);
     }
+     
 }
