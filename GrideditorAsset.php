@@ -13,7 +13,7 @@ use yii\web\AssetBundle;
  */
 class GridstackAsset extends AssetBundle 
 {
-    public $sourcePath = '@bower/gridstack';
+    public $sourcePath = '@bower/grideditor';
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset',
