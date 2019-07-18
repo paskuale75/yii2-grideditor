@@ -13,16 +13,22 @@ use yii\web\AssetBundle;
  */
 class GridstackAsset extends AssetBundle 
 {
-    public $sourcePath = '@bower/grideditor';
+    public $sourcePath = 'https://github.com/Frontwise/grid-editor/tree/master/dist/';
+    
+    public $css = ['grideditor.css'];
+    
+    public $js = [
+        'jquery.grideditor.js',
+        'jquery.grideditor.min.js'
+    ];
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset',
         //'fedemotta\gridstack\LodashAsset',
     ];
     public function init()
-    {
-        $this->css = [YII_ENV_PROD ? 'dist/grideditor.min.css' : 'dist/grideditor.css'];
-        $this->js = [YII_ENV_PROD ? 'dist/grideditor.min.js' : 'dist/grideditor.js'];
+    {        
+        $this->js = [YII_ENV_PROD ? 'jquery.grideditor.min.js' : 'jquery.grideditor.js'];
         parent::init();
     }
 }
