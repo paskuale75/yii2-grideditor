@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright Pasquale Pellicani
- * @author Pasquale Pellicani <pelicanipasquale@gmail.com>
+ * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  * @package yii2-grideditor
  */
@@ -9,7 +9,7 @@ namespace paskuale75\grideditor;
 use yii\web\AssetBundle;
 /**
  * Asset for the Frontwise/grid-editor JQuery plugin
- * @author Pasquale Pellicani <pelicanipasquale@gmail.com>
+ * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
  */
 class GridstackAsset extends AssetBundle 
 {
@@ -21,8 +21,8 @@ class GridstackAsset extends AssetBundle
     ];
     public function init()
     {
-        $this->css = [YII_ENV_PROD ? 'dist/gridstack.min.css' : 'dist/gridstack.css'];
-        $this->js = [YII_ENV_PROD ? 'dist/gridstack.min.js' : 'dist/gridstack.js'];
+        $this->css = [YII_ENV_PROD ? 'dist/grideditor.min.css' : 'dist/grideditor.css'];
+        $this->js = [YII_ENV_PROD ? 'dist/grideditor.min.js' : 'dist/grideditor.js'];
         parent::init();
     }
 }
