@@ -18,7 +18,8 @@ class GrideditorAsset extends AssetBundle
     
     public $depends = [
         'yii\web\JqueryAsset',
-        'yii\jui\JuiAsset'
+        'yii\jui\JuiAsset',
+        'marqu3s\summernote\SummernoteAsset'
     ];
 
     public function __construct($config = [])
