@@ -7,6 +7,8 @@
  */
 namespace paskuale75\grideditor;
 use yii\web\AssetBundle;
+use yii\web\View;
+ 
 /**
  * Asset for the Frontwise/grid-editor JQuery plugin
  * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
