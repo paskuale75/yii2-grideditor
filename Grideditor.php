@@ -13,7 +13,7 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 
 /**
- * Gridstack.js Yii2 widget
+ * Grideditor.js Yii2 widget
  * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
  */
 class Grideditor extends Widget
@@ -116,7 +116,7 @@ class Grideditor extends Widget
         $id = $this->options['id'];
         $view = $this->getView();
         $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : Json::encode([]);
-        GridstackAsset::register($view);
+        GrideditorAsset::register($view);
         $view->registerJs("jQuery('#$id').grideditor($options);");
         echo self::endContainer($this->tag);
     }
