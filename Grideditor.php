@@ -20,7 +20,7 @@ class Grideditor extends Widget
 {
 
     const EDITOR_TinyMCE = 'tinymce';
-    const EDITOR_Summernote = 'Summernote';
+    const EDITOR_Summernote = 'summernote';
     const EDITOR_CKEditor = 'ckeditor';
 
 
@@ -57,7 +57,10 @@ class Grideditor extends Widget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
+
+        $this->options = array_merge($this->clientOptions, $this->options);
         
+        parent::init();
     }
     /**
      * Runs the widget.
@@ -69,7 +72,7 @@ class Grideditor extends Widget
         
         $id = $this->options['id'];
         $view = $this->getView();
-        $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : Json::encode([]);
+        $options = !empty($this->options) ? Json::encode($this->options) : Json::encode([]);
         GrideditorAsset::register($view);
         $view->registerJs(
             "$('#$id').gridEditor($options);"
