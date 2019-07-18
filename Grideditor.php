@@ -19,9 +19,9 @@ use yii\helpers\Json;
 class Grideditor extends Widget
 {
 
-    const EDITOR_TinyMCE = 'TinyMCE';
+    const EDITOR_TinyMCE = 'tinymce';
     const EDITOR_Summernote = 'Summernote';
-    const EDITOR_CKEditor = 'CKEditor';
+    const EDITOR_CKEditor = 'ckeditor';
 
 
     /**
@@ -44,64 +44,9 @@ class Grideditor extends Widget
      */
     public $clientOptions = [];
     
-    /**
-     * @var the grideditor widgets that are currently active
-     */
-    private $_widgets = [];
     
-    /**
-     * Generates a grideditor start tag.
-     * @param array $options
-     * @param string $tag
-     * @return string the generated tag.
-     * @see endContainer()
-     */
-    public static function beginContainer($options=[], $tag='div',$subTag='ul')
-    {
-        return Html::beginTag($tag,$options);
-    }
-    /**
-     * Generates a grideditor end tag.
-     * @param string $tag
-     * @return string the generated tag.
-     * @see beginContainer()
-     */
-    public static function endContainer($tag='div')
-    {
-        return Html::endTag($tag);
     
-    }
-    /**
-     * Generates a grideditor widget begin tag.
-     * This method will create a new gridstack widget and returns its opening tag.
-     * You should call [[endWidget()]] afterwards.
-     * @param array $options
-     * @param string $tag
-     * @return string the generated tag
-     * @see endWidget()
-     */
-    public function beginWidget($options=[],$tag='div')
-    {
-        $widget = Html::beginTag($tag,$options);
-        $this->_widgets[] = $widget;
-        return $widget;
-        
-    }
-    /**
-     * Generates a grideditor widget end tag.
-     * @param string $tag
-     * @return string the generated tag
-     * @see beginWidget()
-     */
-    public function endWidget($tag='div')
-    {
-        $widget = array_pop($this->_widgets);
-        if (!is_null($widget)) {
-            return Html::endTag($tag);
-        } else {
-            throw new InvalidCallException('Mismatching endWidget() call.');
-        }
-    }
+    
     /**
      * Initializes the widget.
      * This method will register the bootstrap asset bundle. If you override this method,
@@ -112,7 +57,7 @@ class Grideditor extends Widget
         if (!isset($this->options['id'])) {
             $this->options['id'] = $this->getId();
         }
-        echo self::beginContainer($this->options,$this->tag);
+        
     }
     /**
      * Runs the widget.
@@ -121,14 +66,14 @@ class Grideditor extends Widget
      */
     public function run()
     {
-        if (!empty($this->_widgets)) {
-            throw new InvalidCallException('Each beginWidget() should have a matching endWidget() call.');
-        }
+        
         $id = $this->options['id'];
         $view = $this->getView();
         $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : Json::encode([]);
         GrideditorAsset::register($view);
-        $view->registerJs("jQuery('#$id').gridEditor($options);");
-        echo self::endContainer($this->tag);
+        $view->registerJs(
+            "$('#$id').gridEditor($options);"
+        );
+        
     }
 }
