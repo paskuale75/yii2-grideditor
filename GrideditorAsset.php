@@ -17,7 +17,7 @@ class GridstackAsset extends AssetBundle
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset',
-        'fedemotta\gridstack\LodashAsset',
+        //'fedemotta\gridstack\LodashAsset',
     ];
     public function init()
     {
