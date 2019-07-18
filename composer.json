@@ -18,7 +18,8 @@
     "require": {
         "yiisoft/yii2": "*",
         "bower-asset/jquery":">= 1.11.0",
-        "bower-asset/jquery-ui":">= 1.11.0"
+        "bower-asset/jquery-ui":">= 1.11.0",
+        "marqu3s/yii2-summernote": "dev-master"
     },
     "autoload": {
         "psr-4": {

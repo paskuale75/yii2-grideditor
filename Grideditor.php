@@ -18,6 +18,17 @@ use yii\helpers\Json;
  */
 class Grideditor extends Widget
 {
+
+    const EDITOR_TinyMCE = 'TinyMCE';
+    const EDITOR_Summernote = 'Summernote';
+    const EDITOR_CKEditor = 'CKEditor';
+
+
+    /**
+     * @var string the Rich text editor options
+     */
+    public $editor = self::EDITOR_Summernote;
+
     /**
      * @var array the HTML attributes for the widget main container tag.
      */
