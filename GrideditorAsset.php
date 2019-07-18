@@ -11,7 +11,7 @@ use yii\web\AssetBundle;
  * Asset for the Frontwise/grid-editor JQuery plugin
  * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
  */
-class GridstackAsset extends AssetBundle 
+class GrideditorkAsset extends AssetBundle 
 {
     public $sourcePath = 'https://github.com/Frontwise/grid-editor/tree/master/dist/';
     
