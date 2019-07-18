@@ -13,6 +13,11 @@ use yii\web\AssetBundle;
  */
 class GrideditorAsset extends AssetBundle 
 {
+    public function init() {
+        $this->jsOptions['position'] = View::POS_HEAD;
+        parent::init();
+
+    }
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset'
@@ -25,9 +30,7 @@ class GrideditorAsset extends AssetBundle
             'js' => [
                 YII_DEBUG ? 'jquery.grideditor.js' : 'jquery.grideditor.min.js'
             ],
-            'css' => [
-                YII_DEBUG ? 'grideditor.css' : 'grideditor.css'
-            ],
+            'css' => ['grideditor.css'],
         ], $config);
         parent::__construct($config);
     }
