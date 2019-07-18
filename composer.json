@@ -1,0 +1,39 @@
+{
+    "name": "paskuale75/yii2-grideditor",
+    "description": "Grid-editor widget for Yii2",
+    "type": "yii2-extension",
+    "minimum-stability": "stable",
+    "keywords": ["yii2","extension","grid","editor","multi-column","jQuery","grid","plugin","responsive"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/paskuale75/yii2-grideditor/issues?state=open",
+        "source": "https://github.com/paskuale75/yii2-grideditor"
+    },
+    "authors": [
+        {
+            "name": "Pasquale Pellicani",
+            "email": "pellicanipasquale@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/lodash":">= 3.5.0",
+        "bower-asset/jquery":">= 1.11.0",
+        "bower-asset/jquery-ui":">= 1.11.0",
+        "bower-asset/grid-editor":"@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "paskuale75\\grideditor\\": ""
+        }
+    },
+    "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    }
+  }
+}
