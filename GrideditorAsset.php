@@ -8,18 +8,14 @@
 namespace paskuale75\grideditor;
 use yii\web\AssetBundle;
 use yii\web\View;
- 
+
 /**
  * Asset for the Frontwise/grid-editor JQuery plugin
  * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
  */
 class GrideditorAsset extends AssetBundle 
 {
-    public function init() {
-        $this->jsOptions['position'] = View::POS_HEAD;
-        parent::init();
-
-    }
+    
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset'
