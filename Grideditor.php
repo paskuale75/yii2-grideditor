@@ -86,7 +86,7 @@ class Grideditor extends Widget
     {
         $id = $this->options['id'];
         $div  = Html::beginTag('div', ['id'=>$id]);
-        $div .= Html::endTag();
+        $div .= Html::endTag('div');
         return $div;
     }
 }
