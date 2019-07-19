@@ -19,8 +19,7 @@ class GrideditorAsset extends AssetBundle
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset',
-        'marqu3s\summernote\SummernoteAsset',
-        'stkevich\ckeditor5\ClassicAssets'
+        'marqu3s\summernote\SummernoteAsset'
     ];
 
     public function __construct($config = [])
@@ -28,6 +27,7 @@ class GrideditorAsset extends AssetBundle
         $config = array_merge([
             'sourcePath' => __DIR__ . '/dist/',
             'js' => [
+                'https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.9.2/ckeditor.js',
                 YII_DEBUG ? 'jquery.grideditor.js' : 'jquery.grideditor.min.js'
             ],
             'css' => ['grideditor.css'],
