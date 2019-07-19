@@ -1,10 +1,12 @@
 <?php
+
 /**
  * @copyright Pasquale Pellicani
  * @author Pasquale Pellicani <pellicanipasquale@gmail.com>
  * @license http://opensource.org/licenses/mit-license.php The MIT License (MIT)
  * @package yii2-grideditor
  */
+
 namespace paskuale75\grideditor;
 
 use yii\base\InvalidCallException;
@@ -33,20 +35,20 @@ class Grideditor extends Widget
      * @var array the HTML attributes for the widget main container tag.
      */
     public $options = [];
-    
+
     /**
      * @var string the main container tag
      */
     public $tag = 'div';
-    
+
     /**
-     * @var array the options for the Grideditor widget.
+     * @var array the options for the internal editor.
      */
-    public $clientOptions = [];
-    
-    
-    
-    
+    public $editorOptions = [];
+
+
+
+
     /**
      * Initializes the widget.
      * This method will register the bootstrap asset bundle. If you override this method,
@@ -58,8 +60,9 @@ class Grideditor extends Widget
             $this->options['id'] = $this->getId();
         }
 
-        $this->options = array_merge($this->clientOptions, $this->options);
-        
+        $_editorOptions = $this->getEditorOptions();
+        $this->options = array_merge($_editorOptions, $this->options);
+
         parent::init();
     }
     /**
@@ -69,7 +72,7 @@ class Grideditor extends Widget
      */
     public function run()
     {
-        
+
         $id = $this->options['id'];
         $view = $this->getView();
         $options = !empty($this->options) ? Json::encode($this->options) : Json::encode([]);
@@ -78,17 +81,46 @@ class Grideditor extends Widget
         $view->registerJs(
             "$('#$id').gridEditor($options);"
         );
-        
     }
 
 
     protected function renderDiv()
     {
         $id = $this->options['id'];
-        $div  = Html::beginTag('div', ['class'=>'container']);
-        $div .= Html::beginTag('div', ['id'=>$id]);
-        $div .= Html::endTag('div');
+        $div  = Html::beginTag('div', ['class' => 'container']);
+        $div .= Html::beginTag($this->tag, ['id' => $id]);
+        $div .= Html::endTag($this->tag);
         $div .= Html::endTag('div');
         echo $div;
+    }
+
+    protected function initEditorOptions()
+    {
+        $ret = [];
+        switch ($this->editor) {
+            case self::EDITOR_Summernote:
+                # code...
+                $config = [$this->editorOptions];
+                break;
+            case self::EDITOR_TinyMCE:
+                # code...
+                $config = [$this->editorOptions];
+                break;
+            case self::EDITOR_CKEditor:
+                # code...
+                $config = [$this->editorOptions];
+                break;
+
+            default:
+                # code...
+                $config = [];
+                break;
+        }
+
+        $ret = [$this->editor => [
+            'config' => $config
+        ]];
+
+        return $ret;
     }
 }
