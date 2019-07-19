@@ -100,15 +100,15 @@ class Grideditor extends Widget
         switch ($this->editor) {
             case self::EDITOR_Summernote:
                 # code...
-                $config = [$this->editorOptions];
+                $config = $this->editorOptions;
                 break;
             case self::EDITOR_TinyMCE:
                 # code...
-                $config = [$this->editorOptions];
+                $config = $this->editorOptions;
                 break;
             case self::EDITOR_CKEditor:
                 # code...
-                $config = [$this->editorOptions];
+                $config = $this->editorOptions;
                 break;
 
             default:
