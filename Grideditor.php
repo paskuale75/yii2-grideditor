@@ -74,9 +74,19 @@ class Grideditor extends Widget
         $view = $this->getView();
         $options = !empty($this->options) ? Json::encode($this->options) : Json::encode([]);
         GrideditorAsset::register($view);
+        $this->renderDiv();
         $view->registerJs(
             "$('#$id').gridEditor($options);"
         );
         
+    }
+
+
+    protected function renderDiv()
+    {
+        $id = $this->options['id'];
+        $div  = Html::beginTag('div', ['id'=>$id]);
+        $div .= Html::endTag();
+        return $div;
     }
 }
