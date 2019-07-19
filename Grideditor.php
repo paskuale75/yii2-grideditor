@@ -60,7 +60,7 @@ class Grideditor extends Widget
             $this->options['id'] = $this->getId();
         }
 
-        $_editorOptions = $this->getEditorOptions();
+        $_editorOptions = $this->initEditorOptions();
         $this->options = array_merge($_editorOptions, $this->options);
 
         parent::init();
