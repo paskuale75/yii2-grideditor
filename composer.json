@@ -19,7 +19,8 @@
         "yiisoft/yii2": "*",
         "bower-asset/jquery":">= 1.11.0",
         "bower-asset/jquery-ui":">= 1.11.0",
-        "marqu3s/yii2-summernote": "dev-master"
+        "marqu3s/yii2-summernote": "dev-master",
+        "stkevich/yii2-ckeditor5": "*"
     },
     "autoload": {
         "psr-4": {
