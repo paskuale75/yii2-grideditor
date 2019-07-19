@@ -85,7 +85,9 @@ class Grideditor extends Widget
     protected function renderDiv()
     {
         $id = $this->options['id'];
-        $div  = Html::beginTag('div', ['id'=>$id]);
+        $div  = Html::beginTag('div', ['class'=>'container']);
+        $div .= Html::beginTag('div', ['id'=>$id]);
+        $div .= Html::endTag('div');
         $div .= Html::endTag('div');
         echo $div;
     }
