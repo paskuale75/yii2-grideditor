@@ -20,7 +20,7 @@ class GrideditorAsset extends AssetBundle
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset',
         'marqu3s\summernote\SummernoteAsset',
-        'stkevich\ckeditor5\InlineAssets'
+        'stkevich\ckeditor5\ClassicAssets'
     ];
 
     public function __construct($config = [])
