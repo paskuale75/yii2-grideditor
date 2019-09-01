@@ -27,7 +27,7 @@ class GrideditorAsset extends AssetBundle
         $config = array_merge([
             'sourcePath' => __DIR__ . '/dist/',
             'js' => [
-                'https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.9.2/ckeditor.js',
+                'https://cdn.ckeditor.com/4.12.1/basic/ckeditor.js',
                 YII_DEBUG ? 'jquery.grideditor.js' : 'jquery.grideditor.min.js'
             ],
             'css' => ['grideditor.css'],
